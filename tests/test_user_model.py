@@ -28,7 +28,7 @@ class UserModelTestCase(unittest.TestCase):
             u.password
 
     def test_password_verification(self):
-        u = User(password='ct')
+        u = User(password='cat')
         self.assertTrue(u.verify_password('cat'))
         self.assertFalse(u.verify_password('dog'))
 
@@ -140,7 +140,7 @@ class UserModelTestCase(unittest.TestCase):
         self.assertFalse(u.can(Permission.ADMIN))
 
     def test_timestamps(self):
-        u = User(password='ct')
+        u = User(password='cat')
         db.session.add(u)
         db.session.commit()
         self.assertTrue(
