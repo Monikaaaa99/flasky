@@ -124,7 +124,7 @@ class UserModelTestCase(unittest.TestCase):
 
     def test_administrator_role(self):
         r = Role.query.filter_by(name='Administrator').first()
-        u = User(email='john@example.com', password='cut', role=r)
+        u = User(email='john@example.com', password='cat', role=r)
         self.assertTrue(u.can(Permission.FOLLOW))
         self.assertTrue(u.can(Permission.COMMENT))
         self.assertTrue(u.can(Permission.WRITE))
@@ -140,7 +140,7 @@ class UserModelTestCase(unittest.TestCase):
         self.assertFalse(u.can(Permission.ADMIN))
 
     def test_timestamps(self):
-        u = User(password='cat')
+        u = User(password='ct')
         db.session.add(u)
         db.session.commit()
         self.assertTrue(
